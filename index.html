@@ -8,127 +8,129 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root{
+  --bg:#050505;
+  --bg2:#0a0a0a;
+  --ink:#f3f3f3;
+  --gold1:#b08d57;
+  --gold2:#e6cf9a;
 }
 
-body {
-  background: #0a0a0a;
-  color: #f5f5f5;
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  background: radial-gradient(circle at top left, #1a1a1a 0%, #050505 70%);
+  color: var(--ink);
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
+  overflow-x:hidden;
 }
 
-/* Navigation */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 60px;
-  letter-spacing: 2px;
-  font-size: 14px;
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:30px 60px;
+  letter-spacing:2px;
+  font-size:14px;
 }
 
-.logo {
-  font-weight: 500;
+.logo{
+  font-weight:500;
 }
 
-nav a {
-  text-decoration: none;
-  color: #d4af37;
-  transition: 0.3s ease;
+nav a{
+  text-decoration:none;
+  color:var(--gold1);
 }
 
-nav a:hover {
-  opacity: 0.7;
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 10%;
+  position:relative;
 }
 
-/* Hero Section */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10%;
-  background: radial-gradient(circle at top left, #1a1a1a 0%, #0a0a0a 60%);
-  animation: fadeIn 2s ease forwards;
+.hero h1{
+  font-family:'Playfair Display', serif;
+  font-size:4rem;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-bottom:20px;
+  position:relative;
 }
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+.hero h1::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg, transparent 40%, rgba(230,207,154,0.4), transparent 60%);
+  animation:shine 6s infinite;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  color: #bbbbbb;
-  max-width: 600px;
+@keyframes shine{
+  0%{left:-100%;}
+  100%{left:100%;}
 }
 
-.cta-button {
-  display: inline-block;
-  padding: 14px 40px;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  text-decoration: none;
-  letter-spacing: 2px;
-  transition: all 0.4s ease;
+.hero p{
+  font-size:1.1rem;
+  color:#bbb;
+  margin-bottom:40px;
+  max-width:600px;
 }
 
-.cta-button:hover {
-  background: #d4af37;
-  color: #000;
+.cta-button{
+  display:inline-block;
+  padding:14px 40px;
+  border:1px solid var(--gold1);
+  color:var(--gold1);
+  text-decoration:none;
+  letter-spacing:2px;
+  transition:0.3s;
 }
 
-/* Info Section */
-.info {
-  padding: 100px 10%;
-  background: #111;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+.cta-button:hover{
+  background:var(--gold1);
+  color:#000;
 }
 
-.info h2 {
-  font-family: 'Playfair Display', serif;
-  margin-bottom: 20px;
-  color: #d4af37;
+/* INFO */
+.info{
+  padding:100px 10%;
+  background:#111;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
 }
 
-.info p {
-  margin-bottom: 10px;
-  color: #cccccc;
-  line-height: 1.6;
+.info h2{
+  font-family:'Playfair Display', serif;
+  margin-bottom:20px;
+  color:var(--gold1);
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 14px;
-  background: #000;
-  letter-spacing: 2px;
+.info p{
+  margin-bottom:10px;
+  color:#ccc;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  background:#000;
+  letter-spacing:2px;
 }
 
-/* Responsive */
-@media(max-width: 900px){
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .info {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:900px){
+  .hero h1{font-size:2.5rem;}
+  .info{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -163,10 +165,6 @@ footer {
     <h2>Hours</h2>
     <p>Monday – Saturday: 9:30am – 8:00pm</p>
     <p>Sunday: 9:30am – 5:00pm</p>
-
-    <h2 style="margin-top:40px;">Signature</h2>
-    <p>Platinum Standard Grooming Experience</p>
-    <p>Black Leather • Precision Craft • Luxury Finish</p>
   </div>
 </section>
 
