@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fade Factory | Washington, DC</title>
+
+<style>
+:root{
+  --bg:#050505;
+  --panel:#0b0b0b;
+  --edge:#151515;
+  --text:#f4f4f4;
+  --muted:#a8a8a8;
+  --metal:#d7dbe0; /* platinum */
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:-apple-system,system-ui,Segoe UI,Roboto,Arial;
+  background:
+    radial-gradient(800px 400px at 30% 30%, rgba(255,255,255,.04), transparent 60%),
+    linear-gradient(180deg,#050505,#090909);
+  color:var(--text);
+}
+
+header{
+  padding:20px 40px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(10px);
+}
+
+.brand{
+  letter-spacing:.25em;
+  font-weight:700;
+  font-size:14px;
+}
+
+nav a{
+  color:rgba(255,255,255,.8);
+  text-decoration:none;
+  margin-left:20px;
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-4px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--metal),transparent);
+  transform:scaleX(0);
+  transition:transform .3s ease;
+}
+
+nav a:hover::after{
+  transform:scaleX(1);
+}
+
+.hero{
+  min-height:85vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:80px 40px;
+}
+
+h1{
+  font-size:clamp(36px,6vw,70px);
+  line-height:1;
+  margin:20px 0;
+  text-transform:uppercase;
+}
+
+p{
+  max-width:600px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 26px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  background:linear-gradient(180deg,var(--metal),#aeb5bd);
+  color:#000;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:-50%;
+  background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.3) 50%,transparent 60%);
+  transform:translateX(-60%);
+}
+
+.btn:hover::after{
+  animation:sheen 1s ease;
+}
+
+@keyframes sheen{
+  to{transform:translateX(60%);}
+}
+
+.info{
+  margin-top:40px;
+  background:rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.1);
+  padding:20px;
+  border-radius:18px;
+  max-width:500px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.6);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">FADE FACTORY</div>
+  <nav>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>PETWORTH • WASHINGTON, DC</div>
+  <h1>A GREAT HAIRCUT IS PRICELESS</h1>
+  <p>Precision fades & cuts. Men’s & Women’s grooming. Clean work. Consistent results.</p>
+
+  <a class="btn" href="https://petworthhishersbarbershopggd.booksy.com/a/" target="_blank">
+    BOOK ONLINE
+  </a>
+
+  <div class="info">
+    <strong>Location:</strong><br>
+    4803 Georgia Ave NW<br>
+    Washington, DC 20011<br><br>
+
+    <strong>Phone:</strong><br>
+    (202) 498-3940<br><br>
+
+    <strong>Email:</strong><br>
+    FadeFactorydc@gmail.com<br><br>
+
+    <strong>Hours:</strong><br>
+    Mon–Sat: 9:30am–8pm<br>
+    Sun: 9:30am–5pm
+  </div>
+</section>
+
+<footer>
+© 2026 Fade Factory
+</footer>
+
+</body>
+</html>
