@@ -6,23 +6,42 @@
 <title>Fade Factory | Washington DC</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+/* === HERO FADE UP ANIMATION === */
 
+.hero h1{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero p{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: .3s;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  } 
 <style>
 :root{
-  --bg:#050505;
-  --bg2:#0a0a0a;
-  --ink:#f3f3f3;
-  --gold1:#b08d57;
-  --gold2:#e6cf9a;
+   --bg: #000000;
+  --bg-soft: #0a0a0a;
+  --ink: #ffffff;
+  --platinum: #e5e4e2;
+  --platinum-soft: #c9ccd1;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-  background: radial-gradient(circle at top left, #1a1a1a 0%, #050505 70%);
+   background: #000000;
   color: var(--ink);
   font-family: 'Inter', sans-serif;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 /* NAV */
@@ -44,62 +63,57 @@ nav a{
 }
 
 /* HERO */
-.hero{
-  height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:0 10%;
-  position:relative;
-}
-
 .hero h1{
-  font-family:'Playfair Display', serif;
-  font-size:4rem;
-  font-weight:700;
-  letter-spacing:2px;
-  margin-bottom:20px;
-  position:relative;
+  opacity:0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
 }
 
-.hero h1::after{
-  content:"";
+.hero p{
+  opacity:0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay:.3s;
+}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.cta-button{
+  background: var(--platinum);
+  color: #000;
+  padding: 14px 30px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s ease;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+.cta-button:hover{
+  transform: scale(0.98);
+}
+
+.cta-button::before{
+  content:'';
   position:absolute;
   top:0;
   left:-100%;
   width:100%;
   height:100%;
-  background:linear-gradient(120deg, transparent 40%, rgba(230,207,154,0.4), transparent 60%);
-  animation:shine 6s infinite;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent);
+  transition:.6s;
 }
 
-@keyframes shine{
-  0%{left:-100%;}
-  100%{left:100%;}
+.cta-button:hover::before{
+  left:100%;
 }
-
-.hero p{
-  font-size:1.1rem;
-  color:#bbb;
-  margin-bottom:40px;
-  max-width:600px;
-}
-
-.cta-button{
-  display:inline-block;
-  padding:14px 40px;
-  border:1px solid var(--gold1);
-  color:var(--gold1);
-  text-decoration:none;
-  letter-spacing:2px;
-  transition:0.3s;
-}
-
-.cta-button:hover{
-  background:var(--gold1);
-  color:#000;
-}
-
 /* INFO */
 .info{
   padding:100px 10%;
