@@ -1,173 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fade Factory | Washington DC</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Fade Factory | Barbershop in Washington, DC</title>
+  <meta name="description" content="Fade Factory — precision fades & grooming in Washington, DC. Clean work, consistent results. Book online today." />
+  <meta name="theme-color" content="#0b0b0b" />
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fade Factory | Washington, DC" />
+  <meta property="og:description" content="A great haircut is priceless. Book online today." />
+  <meta property="og:type" content="website" />
 
- 
-<style>
-:root{
-   --bg: #000000;
-  --bg-soft: #0a0a0a;
-  --ink: #ffffff;
-  --platinum: #e5e4e2;
-  --platinum-soft: #c9ccd1;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 
-*{box-sizing:border-box;margin:0;padding:0;}
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --panel:#111;
+      --text:#f5f5f5;
+      --muted:#bdbdbd;
+      --line:rgba(255,255,255,.14);
+      --gold:#c7a76a;
+      --gold2:#e1c992;
+      --shadow: 0 20px 60px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 1120px;
+    }
 
-body{
-   background: #000000;
-  color: var(--ink);
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+    a{ color: inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-/* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  padding:30px 60px;
-  letter-spacing:2px;
-  font-size:14px;
-}
+    /* Layout */
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 20px; }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+    }
+    .dot{ width:8px; height:8px; border-radius:50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(199,167,106,.12); }
 
-.logo{
-  font-weight:500;
-}
+    /* Header */
+    header{
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(11,11,11,.72);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .mark{
+      width: 34px; height: 34px; border-radius: 10px;
+      border: 1px solid rgba(199,167,106,.45);
+      background:
+        radial-gradient(60% 60% at 30% 30%, rgba(225,201,146,.26), transparent),
+        linear-gradient(135deg, rgba(199,167,106,.25), rgba(255,255,255,.06));
+      box-shadow: 0 0 0 6px rgba(199,167,106,.07);
+    }
+    .links{ display:flex; gap: 18px; align-items:center; }
+    .links a{
+      color: var(--muted);
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .links a:hover{ color: var(--text); background: rgba(255,255,255,.06); }
 
-nav a{
-  text-decoration:none;
-  color:var(--gold1);
-}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(199,167,106,.6);
+      background: linear-gradient(135deg, rgba(199,167,106,.22), rgba(255,255,255,.04));
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      font-weight: 700;
+      letter-spacing:.02em;
+      font-size: 14px;
+      cursor:pointer;
+      white-space: nowrap;
+    }
+    .btn:hover{ border-color: rgba(225,201,146,.85); }
+    .btn.secondary{
+      border-color: var(--line);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      box-shadow: none;
+      font-weight: 600;
+    }
 
-/* HERO */
-.hero h1{
-  opacity:0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-}
+    /* Hero */
+    .hero{
+      position: relative;
+      overflow:hidden;
+      padding: 58px 0 34px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 500px at 20% 20%, rgba(199,167,106,.22), transparent 60%),
+        radial-gradient(900px 500px at 80% 10%, rgba(225,201,146,.10), transparent 60%),
+        radial-gradient(700px 500px at 60% 90%, rgba(255,255,255,.06), transparent 65%);
+      pointer-events:none;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+      position: relative;
+    }
+    .headline{
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(40px, 6vw, 74px);
+      line-height: .95;
+      margin: 14px 0 14px;
+      letter-spacing: .02em;
+    }
+    .headline span{ color: var(--gold2); }
+    .sub{
+      color: var(--muted);
+      max-width: 58ch;
+      margin: 0 0 18px;
+      font-size: 15px;
+    }
+    .ctaRow{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+    .metaRow{
+      display:flex; gap: 18px; flex-wrap: wrap;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .metaRow b{ color: var(--text); font-weight: 700; }
 
-.hero p{
-  opacity:0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-  animation-delay:.3s;
-}
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroCard{
+      position: relative;
+      min-height: 420px;
+      display:flex;
+      align-items:flex-end;
+    }
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.18)),
+        url("storefront.jpg") center/cover no-repeat;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .heroCardInner{
+      position: relative;
+      width: 100%;
+      padding: 18px;
+    }
+    .heroCardInner .mini{
+      display:flex; gap: 10px; align-items:center; justify-content:space-between;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      padding: 12px 12px;
+      background: rgba(0,0,0,.30);
+      backdrop-filter: blur(10px);
+    }
+    .miniLeft{
+      display:flex; flex-direction:column; gap: 4px;
+    }
+    .miniLeft .t{ font-weight:800; letter-spacing:.06em; text-transform:uppercase; font-size:12px; }
+    .miniLeft .m{ color: var(--muted); font-size: 12px; }
 
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
+    /* Sections */
+    section{ padding: 34px 0; }
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap: 12px;
+      margin-bottom: 16px;
+    }
+    h2{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .hint{ color: var(--muted); font-size: 13px; }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .service{
+      padding: 16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .service .name{ font-weight: 800; margin: 0 0 6px; }
+    .service .desc{ color: var(--muted); margin:0; font-size: 13px; }
+    .service .tag{ margin-top: 10px; display:inline-flex; padding: 6px 10px; border-radius:999px; border:1px solid rgba(199,167,106,.45); color: var(--gold2); font-size: 12px; }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .shot{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      min-height: 260px;
+      position: relative;
+    }
+    .shot img{ width:100%; height:100%; object-fit: cover; }
+    .shot::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.35), transparent 45%);
+      pointer-events:none;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .panel h3{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing:.10em;
+      text-transform: uppercase;
+    }
+    .list{ margin:0; padding-left: 18px; color: var(--muted); font-size: 13px; }
+    .list li{ margin: 6px 0; }
+
+    .quote{
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      color: var(--text);
+      margin: 8px 0 0;
+    }
+    .quote small{
+      display:block;
+      font-family: Montserrat, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+    }
+
+    footer{
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 22px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 940px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .heroCard{ min-height: 340px; }
+      .grid3{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: 1fr; }
+      .split{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+    }
+  </style>
+
+  <!-- Local Business Schema (EDIT the phone/address/link if needed) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarberShop",
+    "name": "Fade Factory",
+    "image": [
+      "storefront.jpg",
+      "interior-1.jpg",
+      "interior-2.jpg"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4803 Georgia Ave NW",
+      "addressLocality": "Washington",
+      "addressRegion": "DC",
+      "postalCode": "20011",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-202-000-0000",
+    "url": "https://fadefactorydc-star.github.io",
+    "sameAs": []
   }
-}
-
-.cta-button{
-  background: var(--platinum);
-  color: #000;
-  padding: 14px 30px;
-  text-decoration: none;
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  transition: transform .2s ease;
-  font-weight: 600;
-  letter-spacing: .5px;
-}
-
-.cta-button:hover{
-  transform: scale(0.98);
-}
-
-.cta-button::before{
-  content:'';
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent);
-  transition:.6s;
-}
-
-.cta-button:hover::before{
-  left:100%;
-}
-/* INFO */
-.info{
-  padding:100px 10%;
-  background:#111;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-}
-
-.info h2{
-  font-family:'Playfair Display', serif;
-  margin-bottom:20px;
-  color:var(--gold1);
-}
-
-.info p{
-  margin-bottom:10px;
-  color:#ccc;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px;
-  background:#000;
-  letter-spacing:2px;
-}
-
-@media(max-width:900px){
-  .hero h1{font-size:2.5rem;}
-  .info{grid-template-columns:1fr;}
-}
-</style>
+  </script>
 </head>
 
 <body>
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>Fade Factory</div>
+      </div>
 
-<nav>
-  <div class="logo">FADE FACTORY</div>
-  <a href="#contact">CONTACT</a>
-</nav>
+      <nav class="links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#location">Location</a>
+      </nav>
 
-<section class="hero">
-  <h1>A GREAT HAIRCUT IS PRICELESS</h1>
-  <p>Precision fades & cuts. Men's & Women's grooming. Clean work. Consistent results. Elevated craftsmanship in Washington, DC.</p>
-  <a class="cta-button" href="https://petworthhishersbarbershopggd.booksy.com/a/" target="_blank">BOOK ONLINE</a>
-</section>
-
-<section class="info" id="contact">
-  <div>
-    <h2>Location</h2>
-    <p>4803 Georgia Ave NW</p>
-    <p>Washington, DC 20011</p>
-
-    <h2 style="margin-top:40px;">Phone</h2>
-    <p>(202) 498-3940</p>
-
-    <h2 style="margin-top:40px;">Email</h2>
-    <p>FadeFactorydc@gmail.com</p>
+      <!-- IMPORTANT: Replace BOOKING_LINK with your real booking URL (Booksy, Square, etc.) -->
+      <a class="btn" href="BOOKING_LINK" target="_blank" rel="noreferrer">
+        Book Online
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
+</header>
 
-  <div>
-    <h2>Hours</h2>
-    <p>Monday – Saturday: 9:30am – 8:00pm</p>
-    <p>Sunday: 9:30am – 5:00pm</p>
-  </div>
-</section>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div>
+          <div class="pill"><span class="dot"></span> Washington, DC • Precision grooming</div>
+          <h1 class="headline">A great haircut is <span>priceless</span>.</h1>
+          <p class="sub">
+            Precision fades &amp; cuts. Men’s &amp; women’s grooming. Clean work. Consistent results.
+            Elevated craftsmanship in Washington, DC.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn" href="BOOKING_LINK" target="_blank" rel="noreferrer">Book Online →</a>
+            <a class="btn secondary" href="#services">View Services</a>
+          </div>
+
+          <div class="metaRow">
+            <div><b>Quality</b> first</div>
+            <div><b>On-time</b> appointments</div>
+            <div><b>Clean</b> shop standard</div>
+          </div>
+        </div>
+
+        <div class="card heroCard" role="img" aria-label="Fade Factory storefront">
+          <div class="heroCardInner">
+            <div class="mini">
+              <div class="miniLeft">
+                <div class="t">Fade Factory</div>
+                <div class="m">4803 Georgia Ave NW • Washington, DC</div>
+              </div>
+              <a class="btn secondary" href="#location">Hours</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Services</h2>
+        <div class="hint">Tap “Book Online” for exact pricing & availability.</div>
+      </div>
+
+      <div class="grid3">
+        <div class="service">
+          <p class="name">Signature Fade</p>
+          <p class="desc">Sharp blend, clean lineup, detailed finish.</p>
+          <span class="tag">Most booked</span>
+        </div>
+        <div class="service">
+          <p class="name">Beard + Lineup</p>
+          <p class="desc">Tapered beard work, natural shape, crisp edge.</p>
+          <span class="tag">Precision</span>
+        </div>
+        <div class="service">
+          <p class="name">Kids Cuts</p>
+          <p class="desc">Patient, clean, and camera-ready results.</p>
+          <span class="tag">Family</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Gallery</h2>
+        <div class="hint">Inside the shop.</div>
+      </div>
+
+      <div class="gallery">
+        <div class="shot">
+          <img src="interior-1.jpg" alt="Fade Factory interior photo 1">
+        </div>
+        <div class="shot">
+          <img src="interior-2.jpg" alt="Fade Factory interior photo 2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="split">
+        <div class="panel">
+          <h3>Why clients come back</h3>
+          <ul class="list">
+            <li>Consistent results and clean finishes</li>
+            <li>Detail work: neckline, blend, and edge-up</li>
+            <li>Professional, respectful shop environment</li>
+            <li>Online booking for convenience</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>House quote</h3>
+          <p class="quote">“A great haircut is priceless.”<small>Fade Factory</small></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="wrap">
+      <div class="sectionTitle">
+        <h2>Location & Hours</h2>
+        <div class="hint">Update address/phone inside the HTML if needed.</div>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <h3>Fade Factory</h3>
+          <ul class="list">
+            <li><b style="color:#fff;">Address:</b> 4803 Georgia Ave NW, Washington, DC 20011</li>
+            <li><b style="color:#fff;">Phone:</b> +1 (202) 000-0000</li>
+            <li><b style="color:#fff;">Booking:</b> Book online for times</li>
+          </ul>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn" href="BOOKING_LINK" target="_blank" rel="noreferrer">Book Online →</a>
+            <!-- Google Maps link (edit if needed) -->
+            <a class="btn secondary" target="_blank" rel="noreferrer"
+               href="https://www.google.com/maps/search/?api=1&query=4803+Georgia+Ave+NW+Washington+DC+20011">
+              Open Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Hours</h3>
+          <ul class="list">
+            <li>Mon–Fri: 10:00 AM – 7:00 PM</li>
+            <li>Sat: 9:00 AM – 6:00 PM</li>
+            <li>Sun: Closed</li>
+          </ul>
+          <p class="hint" style="margin-top:10px;">
+            If your hours differ, tell me and I’ll update them.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  © 2026 FADE FACTORY — WASHINGTON, DC
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <div>© <span id="y"></span> Fade Factory • Washington, DC</div>
+      <div>Built for speed • One-page site</div>
+    </div>
+  </div>
 </footer>
 
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
