@@ -395,57 +395,56 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="gear-layer" aria-hidden="true">
-  <svg class="gear g1 spin-cw" viewBox="0 0 200 200">
-    <path d="M100 35l10 3 7-8 12 7-3 10 8 7-3 12-10-3-7 8-12-7 3-10-8-7 3-12zm0 30a35 35 0 1 0 0 70a35 35 0 1 0 0-70z" />
-  </svg>
+ <section class="hero">
+  <!-- GEARS OVERLAY (ON TOP OF HEADLINE) -->
+  <div class="gear-layer" aria-hidden="true">
 
-  <svg class="gear g2 spin-ccw" viewBox="0 0 200 200">
-    <path d="M100 30l12 4 8-10 14 8-4 12 10 8-4 14-12-4-8 10-14-8 4-12-10-8 4-14zm0 32a38 38 0 1 0 0 76a38 38 0 1 0 0-76z" />
-  </svg>
+    <!-- Gear 1 -->
+    <svg class="gear g1 spin-cw" viewBox="0 0 200 200">
+      <path d="M100 15l10 8 12-3 7 10 12 2 1 12 11 6-4 11 8 10-8 9 4 11-11 6-1 12-12 2-7 10-12-3-10 8-10-8-12 3-7-10-12-2-1-12-11-6 4-11-8-9 8-10-4-11 11-6 1-12 12-2 7-10 12 3 10-8zM100 52a48 48 0 1 0 0 96a48 48 0 1 0 0-96z"/>
+    </svg>
 
-  <svg class="gear g3 spin-cw" viewBox="0 0 200 200">
-    <path d="M100 40l9 3 6-7 11 6-3 9 7 6-3 11-9-3-6 7-11-6 3-9-7-6 3-11zm0 28a30 30 0 1 0 0 60a30 30 0 1 0 0-60z" />
-  </svg>
-</div>
-    <div class="wrap">
-      <div class="heroGrid">
-        <div>
-          <div class="pill"><span class="dot"></span> Washington, DC • Precision grooming</div>
-          <h1 class="headline">A great haircut is <span>priceless</span>.</h1>
-          <p class="sub">
-            Precision fades &amp; cuts. Men’s &amp; women’s grooming. Clean work. Consistent results.
-            Elevated craftsmanship in Washington, DC.
-          </p>
+    <!-- Gear 2 -->
+    <svg class="gear g2 spin-ccw" viewBox="0 0 200 200">
+      <path d="M100 22l9 7 10-2 6 9 10 2 1 10 9 5-3 9 7 8-7 8 3 9-9 5-1 10-10 2-6 9-10-2-9 7-9-7-10 2-6-9-10-2-1-10-9-5 3-9-7-8 7-8-3-9 9-5 1-10 10-2 6-9 10 2 9-7zM100 60a40 40 0 1 0 0 80a40 40 0 1 0 0-80z"/>
+    </svg>
 
-          <div class="ctaRow">
-            <a class="btn" href="BOOKING_LINK" target="_blank" rel="noreferrer">Book Online →</a>
-            <a class="btn secondary" href="#services">View Services</a>
-          </div>
+    <!-- Gear 3 -->
+    <svg class="gear g3 spin-cw" viewBox="0 0 200 200">
+      <path d="M100 18l10 8 11-3 7 10 12 2 1 11 10 6-4 10 8 10-8 9 4 10-10 6-1 11-12 2-7 10-11-3-10 8-10-8-11 3-7-10-12-2-1-11-10-6 4-10-8-9 8-10-4-10 10-6 1-11 12-2 7-10 11 3 10-8zM100 58a42 42 0 1 0 0 84a42 42 0 1 0 0-84z"/>
+    </svg>
 
-          <div class="metaRow">
-            <div><b>Quality</b> first</div>
-            <div><b>On-time</b> appointments</div>
-            <div><b>Clean</b> shop standard</div>
-          </div>
+    <!-- Gear 4 -->
+    <svg class="gear g4 spin-ccw" viewBox="0 0 200 200">
+      <path d="M100 15l10 8 12-3 7 10 12 2 1 12 11 6-4 11 8 10-8 9 4 11-11 6-1 12-12 2-7 10-12-3-10 8-10-8-12 3-7-10-12-2-1-12-11-6 4-11-8-9 8-10-4-11 11-6 1-12 12-2 7-10 12 3 10-8zM100 52a48 48 0 1 0 0 96a48 48 0 1 0 0-96z"/>
+    </svg>
+
+  </div>
+
+  <div class="container">
+    <div class="heroGrid">
+      <div class="heroContent">
+        <div class="pill"><span class="dot"></span> Washington, DC • Precision grooming</div>
+        <h1>A GREAT HAIRCUT IS PRICELESS</h1>
+        <p class="sub">Precision fades & cuts. Men’s & women’s grooming. Clean work. Consistent results. Elevated craftsmanship in Washington, DC.</p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="BOOKING_LINK" target="_blank" rel="noreferrer">Book Online →</a>
+          <a class="btn" href="#services">View Services</a>
         </div>
-
-        <div class="card heroCard" role="img" aria-label="Fade Factory storefront">
-          <div class="heroCardInner">
-            <div class="mini">
-              <div class="miniLeft">
-                <div class="t">Fade Factory</div>
-                <div class="m">4803 Georgia Ave NW • Washington, DC</div>
-              </div>
-              <a class="btn secondary" href="#location">Hours</a>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <div class="heroCard"></div>
     </div>
-  </section>
+
+    <div id="services" class="sectionTitle">SERVICES</div>
+    <div class="cards">
+      <div class="card"><h3>Signature Fade</h3><p>Sharp blend, clean lineup, detailed finish.</p><span class="tag">Most booked</span></div>
+      <div class="card"><h3>Beard + Lineup</h3><p>Tapered beard work, natural shape, crisp edge.</p><span class="tag">Precision</span></div>
+      <div class="card"><h3>Kids Cuts</h3><p>Patient, clean, and camera-ready results.</p><span class="tag">Family</span></div>
+    </div>
+  </div>
+</section>
 
   <section id="services">
     <div class="wrap">
