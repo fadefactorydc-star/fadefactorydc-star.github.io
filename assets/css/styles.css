@@ -135,3 +135,50 @@
     animation:none !important;
   }
 }
+/* === STRONGER / MORE VISIBLE GEARS === */
+.gear-layer{
+  position:absolute;
+  inset:-140px;
+  z-index: 1;
+  pointer-events:none;
+
+  /* turn up visibility */
+  opacity: .75;
+  filter: blur(.15px);
+}
+
+.gear{
+  position:absolute;
+  width: 520px;
+  height: 520px;
+
+  /* make visible */
+  fill: rgba(0,0,0,0);                 /* no fill */
+  stroke: rgba(245,245,245,.85);       /* brighter stroke */
+  stroke-width: 2.4;
+
+  /* “luxury glow” */
+  filter: drop-shadow(0 0 14px rgba(215,192,138,.22))
+          drop-shadow(0 0 40px rgba(255,255,255,.08));
+
+  opacity: .55;
+  mix-blend-mode: screen;
+
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+
+/* positions / scale */
+.g1{ left:-180px; top:10px;  width:780px; height:780px; opacity:.28; }
+.g2{ right:-210px; top:60px; width:680px; height:680px; opacity:.38; }
+.g3{ right:140px; bottom:-320px; width:620px; height:620px; opacity:.24; }
+
+/* rotation */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spinReverse { to { transform: rotate(-360deg); } }
+
+.spin-cw  { animation: spin 16s linear infinite; }
+.spin-ccw { animation: spinReverse 21s linear infinite; }
+
+/* keep your text/buttons above gears */
+.hero .wrap, .hero .heroGrid, header { position: relative; z-index: 2; }
