@@ -1,173 +1,231 @@
-/* ===============================
-   FADE FACTORY – Luxury Motion System
-   Cinematic depth + rotating gears
-================================= */
+/* ===========================
+   FADE FACTORY — BLACK / WHITE / PLATINUM
+   Cinematic hero + rotating gear overlay
+   =========================== */
 
 :root{
   --bg:#070707;
-  --gold:#d7c08a;
-  --gold-soft:rgba(215,192,138,.18);
-  --text:#f5f5f5;
-  --muted:#bdbdbd;
-  --line:rgba(255,255,255,.08);
+  --panel: rgba(255,255,255,.05);
+  --line: rgba(255,255,255,.10);
+  --text:#ffffff;
+  --muted: rgba(255,255,255,.78);
+
+  /* platinum (NOT gold) */
+  --platinum:#cfd3d8;
+  --platinumSoft: rgba(207,211,216,.22);
+
+  --shadow: 0 30px 90px rgba(0,0,0,.65);
+  --radius: 18px;
+  --max: 1120px;
 }
 
-/* HERO MUST BE RELATIVE */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(207,211,216,.06), transparent 55%),
+    linear-gradient(180deg, #050505, #0a0a0a 50%, #060606);
+  color:var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  overflow-x:hidden;
+}
+
+a{color:inherit; text-decoration:none}
+.container{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+/* ===== Header / Nav ===== */
+header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.35);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{
+  height:76px; display:flex; align-items:center; justify-content:space-between;
+}
+.brand{display:flex; align-items:center; gap:12px; letter-spacing:.12em; font-weight:700}
+.brandMark{
+  width:34px; height:34px; border-radius:10px;
+  border:1px solid rgba(207,211,216,.45);
+  box-shadow: 0 0 0 6px rgba(207,211,216,.06) inset;
+  background: radial-gradient(circle at 30% 30%, rgba(207,211,216,.22), transparent 60%);
+}
+.navLinks{display:flex; gap:22px; font-size:14px; opacity:.9}
+.navLinks a{opacity:.8}
+.navLinks a:hover{opacity:1}
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  height:44px; padding:0 16px;
+  border-radius:14px;
+  border:1px solid rgba(207,211,216,.45);
+  background: rgba(0,0,0,.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+.btn:hover{transform: translateY(-1px)}
+.btn:active{transform: translateY(0px)}
+.btnPrimary{
+  border-color: rgba(207,211,216,.70);
+  background: linear-gradient(180deg, rgba(207,211,216,.18), rgba(0,0,0,.15));
+}
+
+/* ===== Hero ===== */
 .hero{
   position:relative;
+  padding: 70px 0 30px;
+  overflow:hidden; /* keep gears contained */
+}
+.heroGrid{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:28px;
+  align-items:stretch;
+}
+
+/* content stays readable but gears sit ON TOP of text */
+.heroContent{position:relative; z-index:2}
+.heroCard{
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-height: 280px;
+  position:relative;
   overflow:hidden;
 }
 
-/* ===============================
-   GEAR BACKGROUND LAYER
-================================= */
+/* pill */
+.pill{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(207,211,216,.30);
+  background: rgba(0,0,0,.25);
+  font-size:13px;
+  color: rgba(255,255,255,.85);
+}
+.dot{
+  width:9px; height:9px; border-radius:99px;
+  background: var(--platinum);
+  box-shadow: 0 0 22px rgba(207,211,216,.35);
+}
 
-.gear-layer{
-  position:absolute;
-  inset:0;
+h1{
+  margin:18px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  letter-spacing:.02em;
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+.sub{
+  margin: 0 0 18px;
+  color: var(--muted);
+  max-width: 56ch;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* CTA row */
+.ctaRow{display:flex; gap:12px; margin-top:16px; flex-wrap:wrap}
+
+/* ===== Cinematic light sweep (subtle motion) ===== */
+.hero::before{
+  content:"";
+  position:absolute; inset:-120px;
+  background:
+    radial-gradient(700px 260px at 25% 35%, rgba(207,211,216,.14), transparent 60%),
+    radial-gradient(700px 260px at 70% 15%, rgba(255,255,255,.08), transparent 60%),
+    linear-gradient(115deg, transparent 35%, rgba(207,211,216,.12), transparent 65%);
+  filter: blur(2px);
+  opacity:.55;
+  animation: sweep 9s ease-in-out infinite;
   pointer-events:none;
-  overflow:hidden;
   z-index:0;
 }
-
-/* Keep hero content above gears */
-.hero-content{
-  position:relative;
-  z-index:2;
+@keyframes sweep{
+  0%,100%{transform: translate3d(-2%,0,0) rotate(-2deg)}
+  50%{transform: translate3d(2%,-1%,0) rotate(2deg)}
 }
 
-/* Base gear styling */
+/* ===== GEAR LAYER (ON TOP OF HEADLINE) ===== */
+.gear-layer{
+  position:absolute;
+  inset:-60px;          /* keep them large */
+  z-index:3;            /* ABOVE heroContent */
+  pointer-events:none;
+  opacity:.55;
+  filter: blur(.15px);
+  mix-blend-mode: screen; /* makes platinum glow feel */
+}
+
+/* make SVG visible */
 .gear{
   position:absolute;
-  fill: var(--gold-soft);
-  opacity:.35;
-  transform-origin:50% 50%;
-  will-change:transform;
+  width: 420px;
+  height: 420px;
+  fill: none;
+  stroke: rgba(207,211,216,.55);
+  stroke-width: 2;
+  opacity: .9;
+  transform-origin: 50% 50%;
 }
 
-/* Sizes */
-.gear--xl{
-  width:520px;
-  height:520px;
-}
-.gear--md{
-  width:340px;
-  height:340px;
-}
-.gear--sm{
-  width:220px;
-  height:220px;
-}
+/* placements */
+.g1{left:-120px; top:-90px; width:520px; height:520px; opacity:.55}
+.g2{left:260px; top:-30px; width:340px; height:340px; opacity:.45}
+.g3{right:-150px; top:10px; width:420px; height:420px; opacity:.55}
+.g4{right:-80px; bottom:-220px; width:520px; height:520px; opacity:.40}
 
-/* Placement */
-.gear--left{
-  left:-150px;
-  top:-120px;
-  opacity:.18;
-  filter:blur(1px);
+/* rotation */
+.spin-cw{animation: spinCW 18s linear infinite}
+.spin-ccw{animation: spinCCW 26s linear infinite}
+@keyframes spinCW{from{transform:rotate(0)} to{transform:rotate(360deg)}}
+@keyframes spinCCW{from{transform:rotate(0)} to{transform:rotate(-360deg)}}
+
+/* ===== Services row (example style) ===== */
+.sectionTitle{
+  margin: 28px 0 12px;
+  letter-spacing:.14em;
+  font-size:14px;
+  opacity:.9;
 }
-
-.gear--mid{
-  left:40%;
-  top:10%;
-  opacity:.15;
-  filter:blur(1.5px);
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:14px;
 }
-
-.gear--right{
-  right:-120px;
-  bottom:-140px;
-  opacity:.22;
-  filter:blur(1px);
+.card{
+  border:1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  border-radius: var(--radius);
+  padding:16px;
 }
-
-/* ===============================
-   ROTATION ANIMATION
-================================= */
-
-@keyframes spinClockwise{
-  from{
-    transform:rotate(0deg);
-  }
-  to{
-    transform:rotate(360deg);
-  }
+.card h3{margin:0 0 6px; font-size:16px}
+.card p{margin:0; color:var(--muted); font-size:13px; line-height:1.45}
+.tag{
+  display:inline-flex;
+  margin-top:10px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(207,211,216,.35);
+  color: rgba(255,255,255,.9);
+  font-size:12px;
+  background: rgba(0,0,0,.25);
 }
 
-@keyframes spinCounter{
-  from{
-    transform:rotate(0deg);
-  }
-  to{
-    transform:rotate(-360deg);
-  }
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .heroGrid{grid-template-columns: 1fr}
+  .gear-layer{opacity:.40}
+  .cards{grid-template-columns: 1fr}
 }
 
-.spin-cw{
-  animation: spinClockwise 60s linear infinite;
-}
-
-.spin-ccw{
-  animation: spinCounter 75s linear infinite;
-}
-
-/* ===============================
-   LUXURY GLOW EFFECT
-================================= */
-
-.gear::after{
-  content:"";
-  position:absolute;
-  inset:-40px;
-  background: radial-gradient(circle, rgba(215,192,138,.18), transparent 70%);
-  z-index:-1;
-  filter:blur(60px);
-  opacity:.4;
-}
-
-/* ===============================
-   REDUCED MOTION SUPPORT
-================================= */
-
+/* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce){
-  .spin-cw,
-  .spin-ccw{
-    animation:none !important;
-  }
-}
-/* ===== GEAR VISIBILITY BOOST (paste at very bottom) ===== */
-
-/* Make sure gears sit behind content but above background */
-.hero { position: relative; overflow: hidden; }
-.gear-layer { z-index: 0 !important; opacity: 1 !important; }
-.hero-content, .wrap, header { position: relative; z-index: 2 !important; }
-
-/* Make gears actually visible (outline + glow) */
-.gear {
-  opacity: 0.28 !important;      /* raise visibility */
-  filter: blur(0px) !important;  /* remove extra blur if hiding it */
-}
-
-/* If your gear SVG uses <circle> or paths, this forces a visible outline */
-.gear * {
-  fill: none !important;
-  stroke: rgba(215,192,138,0.65) !important;  /* luxury gold */
-  stroke-width: 6 !important;
-  vector-effect: non-scaling-stroke;
-}
-
-/* Stronger glow layer */
-.gear::after { opacity: .6 !important; filter: blur(30px) !important; }
-
-/* Ensure rotation classes actually animate */
-.spin-cw { animation: spinClockwise 26s linear infinite !important; }
-.spin-ccw { animation: spinCounter 34s linear infinite !important; }
-
-@keyframes spinClockwise {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-@keyframes spinCounter {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
+  .spin-cw,.spin-ccw{animation:none !important}
+  .hero::before{animation:none !important}
 }
