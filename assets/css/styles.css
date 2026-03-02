@@ -1,0 +1,137 @@
+/* ===============================
+   FADE FACTORY – Luxury Motion System
+   Cinematic depth + rotating gears
+================================= */
+
+:root{
+  --bg:#070707;
+  --gold:#d7c08a;
+  --gold-soft:rgba(215,192,138,.18);
+  --text:#f5f5f5;
+  --muted:#bdbdbd;
+  --line:rgba(255,255,255,.08);
+}
+
+/* HERO MUST BE RELATIVE */
+.hero{
+  position:relative;
+  overflow:hidden;
+}
+
+/* ===============================
+   GEAR BACKGROUND LAYER
+================================= */
+
+.gear-layer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
+}
+
+/* Keep hero content above gears */
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+/* Base gear styling */
+.gear{
+  position:absolute;
+  fill: var(--gold-soft);
+  opacity:.35;
+  transform-origin:50% 50%;
+  will-change:transform;
+}
+
+/* Sizes */
+.gear--xl{
+  width:520px;
+  height:520px;
+}
+.gear--md{
+  width:340px;
+  height:340px;
+}
+.gear--sm{
+  width:220px;
+  height:220px;
+}
+
+/* Placement */
+.gear--left{
+  left:-150px;
+  top:-120px;
+  opacity:.18;
+  filter:blur(1px);
+}
+
+.gear--mid{
+  left:40%;
+  top:10%;
+  opacity:.15;
+  filter:blur(1.5px);
+}
+
+.gear--right{
+  right:-120px;
+  bottom:-140px;
+  opacity:.22;
+  filter:blur(1px);
+}
+
+/* ===============================
+   ROTATION ANIMATION
+================================= */
+
+@keyframes spinClockwise{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes spinCounter{
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(-360deg);
+  }
+}
+
+.spin-cw{
+  animation: spinClockwise 60s linear infinite;
+}
+
+.spin-ccw{
+  animation: spinCounter 75s linear infinite;
+}
+
+/* ===============================
+   LUXURY GLOW EFFECT
+================================= */
+
+.gear::after{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background: radial-gradient(circle, rgba(215,192,138,.18), transparent 70%);
+  z-index:-1;
+  filter:blur(60px);
+  opacity:.4;
+}
+
+/* ===============================
+   REDUCED MOTION SUPPORT
+================================= */
+
+@media (prefers-reduced-motion: reduce){
+  .spin-cw,
+  .spin-ccw{
+    animation:none !important;
+  }
+}
