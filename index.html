@@ -30,6 +30,42 @@
       --shadow: 0 20px 60px rgba(0,0,0,.55);
       --radius: 18px;
       --max: 1120px;
+      /* === GEAR LAYER (VISIBLE + ROTATING) === */
+.hero { position: relative; overflow: hidden; }
+
+.gear-layer{
+  position:absolute;
+  inset:-80px;
+  z-index: 1;              /* IMPORTANT: above background */
+  pointer-events:none;
+  opacity:.35;
+  filter: blur(.2px);
+}
+
+.gear{
+  position:absolute;
+  width: 380px;
+  height: 380px;
+  fill: none;
+  stroke: rgba(245,245,245,.55);   /* makes it visible */
+  stroke-width: 2;
+  opacity:.65;
+  transform-origin: 50% 50%;
+  mix-blend-mode: screen;
+}
+
+.g1{ left:-90px; top:80px; width:520px; height:520px; opacity:.25; }
+.g2{ right:-120px; top:120px; width:460px; height:460px; opacity:.35; }
+.g3{ right:120px; bottom:-180px; width:420px; height:420px; opacity:.22; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spinReverse { to { transform: rotate(-360deg); } }
+
+.spin-cw{ animation: spin 22s linear infinite; }
+.spin-ccw{ animation: spinReverse 28s linear infinite; }
+
+/* Ensure hero content is ABOVE gears */
+.hero .wrap, .hero .heroGrid, header { position: relative; z-index: 2; }
     }
 
     *{ box-sizing:border-box; }
@@ -359,20 +395,18 @@
 
 <main>
   <section class="hero">
-    <div class="gear-layer">
-
-  <svg class="gear gear--xl gear--left spin-cw" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="80"/>
+    <div class="gear-layer" aria-hidden="true">
+  <svg class="gear g1 spin-cw" viewBox="0 0 200 200">
+    <path d="M100 35l10 3 7-8 12 7-3 10 8 7-3 12-10-3-7 8-12-7 3-10-8-7 3-12zm0 30a35 35 0 1 0 0 70a35 35 0 1 0 0-70z" />
   </svg>
 
-  <svg class="gear gear--md gear--mid spin-ccw" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="60"/>
+  <svg class="gear g2 spin-ccw" viewBox="0 0 200 200">
+    <path d="M100 30l12 4 8-10 14 8-4 12 10 8-4 14-12-4-8 10-14-8 4-12-10-8 4-14zm0 32a38 38 0 1 0 0 76a38 38 0 1 0 0-76z" />
   </svg>
 
-  <svg class="gear gear--sm gear--right spin-cw" viewBox="0 0 200 200">
-    <circle cx="100" cy="100" r="40"/>
+  <svg class="gear g3 spin-cw" viewBox="0 0 200 200">
+    <path d="M100 40l9 3 6-7 11 6-3 9 7 6-3 11-9-3-6 7-11-6 3-9-7-6 3-11zm0 28a30 30 0 1 0 0 60a30 30 0 1 0 0-60z" />
   </svg>
-
 </div>
     <div class="wrap">
       <div class="heroGrid">
