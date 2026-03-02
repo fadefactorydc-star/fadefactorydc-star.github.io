@@ -35,23 +35,24 @@
 
 .gear-layer{
   position:absolute;
-  inset:-80px;
-  z-index: 1;              /* IMPORTANT: above background */
+  inset:0;
+  z-index:1;
   pointer-events:none;
-  opacity:.35;
-  filter: blur(.2px);
+  opacity:1;          /* FULL visibility */
+  filter:none;        /* remove blur */
 }
 
 .gear{
   position:absolute;
-  width: 380px;
-  height: 380px;
-  fill: none;
-  stroke: rgba(245,245,245,.55);   /* makes it visible */
-  stroke-width: 2;
-  opacity:.65;
-  transform-origin: 50% 50%;
-  mix-blend-mode: screen;
+  width:380px;
+  height:380px;
+
+  fill:none;
+  stroke:#ffffff;     /* pure white test */
+  stroke-width:6;
+
+  opacity:1;          /* FULL visibility */
+  mix-blend-mode:normal;
 }
 
 .g1{ left:-90px; top:80px; width:520px; height:520px; opacity:.25; }
