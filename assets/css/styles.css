@@ -203,15 +203,10 @@ body{
 }
 .gear{
   position:absolute;
-  width: 420px;
-  height: 420px;
-  fill: rgba(255,255,255,.08);
-  stroke: rgba(255,255,255,.46);
-  stroke-width: 2.2;
-  opacity: .26;
-  filter:none;
+  fill: rgba(255,255,255,0.08);
+  stroke: none;
+  opacity: 0.25;
 }
-
 .g1{ left: -120px; top: 10px; width: 520px; height: 520px; }
 .g2{ left: 320px; top: -10px; width: 360px; height: 360px; opacity:.20; }
 .g3{ right: -140px; top: 40px; width: 460px; height: 460px; opacity:.22; }
