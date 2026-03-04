@@ -480,3 +480,69 @@ body{
 @media (prefers-reduced-motion: reduce){
   .spin-cw, .spin-ccw, .film, .sweep{ animation: none !important; }
 }
+/* =========================
+   GEAR WALL (Premium Motion)
+   ========================= */
+
+.hero{
+  position: relative;
+  overflow: hidden;
+}
+
+/* gear layer behind text */
+.gear-wall{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.18;           /* overall subtlety */
+}
+
+/* make sure hero content is above gears */
+.heroInner{
+  position: relative;
+  z-index: 2;
+}
+
+.gear{
+  position: absolute;
+  height: auto;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  opacity: 0.85;
+}
+
+/* sizes */
+.gear-xl{ width: 540px; }
+.gear-xs{ width: 220px; }
+.gear-logo{ width: 360px; }
+
+/* positions (desktop) */
+.g1{ left: -160px; top: 30px;  animation: spinCW 28s linear infinite; }
+.g2{ left: 420px;  top: -70px; animation: spinCCW 18s linear infinite; }
+.g3{ right: -170px; top: 10px; animation: spinCW 34s linear infinite; }
+
+.g4{ left: 140px;  bottom: -140px; animation: spinCCW 22s linear infinite; }
+.g5{ right: 230px; bottom: -190px; animation: spinCW 30s linear infinite; }
+
+.g6{ right: 520px; top: 150px; animation: spinCW 16s linear infinite; }
+.g7{ left: 620px;  bottom: -70px; animation: spinCCW 40s linear infinite; }
+
+/* animations */
+@keyframes spinCW { to { transform: rotate(360deg); } }
+@keyframes spinCCW { to { transform: rotate(-360deg); } }
+
+/* responsive (mobile/tablet) */
+@media (max-width: 900px){
+  .gear-xl{ width: 360px; }
+  .gear-xs{ width: 160px; }
+  .gear-logo{ width: 260px; }
+
+  .g1{ left:-140px; top: 40px; }
+  .g2{ left:220px; top:-60px; }
+  .g3{ right:-160px; top: 40px; }
+  .g4{ left:20px; bottom:-140px; }
+  .g5{ right:40px; bottom:-170px; }
+  .g6{ right:200px; top: 170px; }
+  .g7{ left:260px; bottom:-80px; }
+}
