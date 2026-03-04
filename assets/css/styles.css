@@ -207,13 +207,21 @@ body{
   stroke: none;
   opacity: 0.25;
 }
-.g1{ left:40px; top:20px; width:420px; }
-.g2{ left:220px; top:40px; width:160px; }
-.g3{ left:380px; top:20px; width:160px; }
-.g4{ left:520px; top:10px; width:200px; }
-.g5{ left:700px; top:30px; width:200px; }
-.g6{ left:880px; top:80px; width:150px; }
-.g7{ right:80px; top:20px; width:380px; }
+/* Gear positions matching shop wall */
+
+.g1{ left:-80px; top:-140px; width:520px; height:520px; }   /* half gear touching ceiling */
+
+.g2{ left:160px; top:40px; width:160px; height:160px; }
+
+.g3{ left:320px; top:20px; width:160px; height:160px; }
+
+.g4{ left:460px; top:10px; width:200px; height:200px; }
+
+.g5{ left:620px; top:30px; width:200px; height:200px; }
+
+.g6{ left:800px; top:70px; width:150px; height:150px; }
+
+.g7{ right:60px; top:20px; width:380px; height:380px; }  /* Fade Factory logo gear */
 /* rotation */
 .spin-cw{ animation: spinCW 52s linear infinite; }
 .spin-ccw{ animation: spinCCW 70s linear infinite; }
