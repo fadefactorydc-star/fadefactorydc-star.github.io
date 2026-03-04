@@ -207,10 +207,13 @@ body{
   stroke: none;
   opacity: 0.25;
 }
-.g1{ left: -120px; top: 10px; width: 520px; height: 520px; }
-.g2{ left: 320px; top: -10px; width: 360px; height: 360px; opacity:.20; }
-.g3{ right: -140px; top: 40px; width: 460px; height: 460px; opacity:.22; }
-
+.g1{ left:40px; top:20px; width:420px; }
+.g2{ left:220px; top:40px; width:160px; }
+.g3{ left:380px; top:20px; width:160px; }
+.g4{ left:520px; top:10px; width:200px; }
+.g5{ left:700px; top:30px; width:200px; }
+.g6{ left:880px; top:80px; width:150px; }
+.g7{ right:80px; top:20px; width:380px; }
 /* rotation */
 .spin-cw{ animation: spinCW 52s linear infinite; }
 .spin-ccw{ animation: spinCCW 70s linear infinite; }
