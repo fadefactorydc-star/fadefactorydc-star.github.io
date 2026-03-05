@@ -195,7 +195,7 @@ body{
 
 /* ===== GEAR LAYER (ON TOP OF HEADLINE) ===== */
 .gear-layer{
-  position:absolute;
+   position:absolute;
   inset: -140px -140px auto -140px;
   height: 520px;
   z-index: 12; /* above heroInner headline */
@@ -209,7 +209,7 @@ body{
 }
 /* Gear positions matching shop wall */
 
-.g1{ left:-80px; top:-140px; width:520px; height:520px; }   /* half gear touching ceiling */
+.g1{ left:-60px; top:-120px; width:420px; height:420px; }   /* half gear touching ceiling */
 
 .g2{ left:160px; top:40px; width:160px; height:160px; }
 
