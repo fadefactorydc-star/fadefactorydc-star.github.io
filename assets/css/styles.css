@@ -225,19 +225,21 @@ body{
 
 /* FULL GEARS (not cut off) */
 
-.g1 { left: 40px; top: 180px; width: 420px; }
+/* Balanced full gear layout */
 
-.g2 { left: 300px; top: 60px; width: 140px; }
+.g1 { left: 60px;  top: 200px; width: 360px; }
 
-.g3 { left: 200px; top: 300px; width: 220px; }
+.g2 { left: 340px; top: 80px;  width: 140px; }
 
-.g4 { left: 620px; top: 220px; width: 180px; }
+.g3 { left: 260px; top: 260px; width: 200px; }
 
-.g5 { left: 420px; top: 20px; width: 520px; }
+.g4 { left: 560px; top: 200px; width: 180px; }
 
-.g6 { left: 780px; top: 120px; width: 160px; }
+.g5 { left: 420px; top: 0px;   width: 420px; }
 
-.g7 { left: 900px; top: 200px; width: 420px; }/* Fade Factory logo gear */
+.g6 { left: 720px; top: 120px; width: 140px; }
+
+.g7 { left: 820px; top: 220px; width: 340px; }/* Fade Factory logo gear */
 /* rotation */
 .spin-cw{ animation: spinCW 52s linear infinite; }
 .spin-ccw{ animation: spinCCW 70s linear infinite; }
