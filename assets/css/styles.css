@@ -209,38 +209,78 @@ body{
 }
 /* Gear positions matching shop wall */
 
-.gear-wall {
+/* ===== HERO / GEAR WALL ===== */
+
+.hero{
+  position: relative;
+  overflow: hidden;
+  min-height: 720px;
+}
+
+.heroInner{
+  position: relative;
+  z-index: 5;
+}
+
+.gear-wall{
   position:absolute;
-  top:-120px;
-  left:-120px;
+  top:0;
+  left:0;
   width:1400px;
-  height:700px;
+  height:760px;
   pointer-events:none;
-}
-.gear {
-  position: absolute;
-  opacity: 0.18;
+  z-index:2;
 }
 
-/* FULL GEARS (not cut off) */
+.gear{
+  position:absolute;
+  opacity:0.18;
+  object-fit:contain;
+}
 
-/* Balanced full gear layout */
+/* 7 gears layout */
 
-/* Fade Factory gear wall layout */
+.g1{
+  left:-40px;
+  top:170px;
+  width:330px;
+}
 
-.g1 { left: 60px; top: 180px; width: 380px; }
+.g2{
+  left:300px;
+  top:40px;
+  width:135px;
+}
 
-.g2 { left: 320px; top: 40px; width: 150px; }
+.g3{
+  left:210px;
+  top:230px;
+  width:220px;
+}
 
-.g3 { left: 220px; top: 260px; width: 220px; }
+.g4{
+  left:610px;
+  top:150px;
+  width:150px;
+}
 
-.g4 { left: 520px; top: 200px; width: 180px; }
+.g5{
+  left:430px;
+  top:-120px;
+  width:430px;
+}
 
-.g5 { left: 460px; top: -60px; width: 460px; }
+.g6{
+  left:740px;
+  top:210px;
+  width:150px;
+}
 
-.g6 { left: 720px; top: 120px; width: 160px; }
-
-.g7 { left: 880px; top: 180px; width: 360px; }/* Fade Factory logo gear */
+.g7{
+  left:930px;
+  top:120px;
+  width:320px;
+}/* Fade Factory logo gear */
 /* rotation */
 .spin-cw{ animation: spinCW 52s linear infinite; }
 .spin-ccw{ animation: spinCCW 70s linear infinite; }
