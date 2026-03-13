@@ -229,13 +229,13 @@ body{
   width:1400px;
   height:760px;
   pointer-events:none;
-  z-index:2;
+  z-index:1;
 }
 
 .gear{
   position:absolute;
-  opacity:0.55;
-  object-fit:contain;
+  display:block;
+  opacity:0.65;
 }
 
 /* 7 gears layout */
