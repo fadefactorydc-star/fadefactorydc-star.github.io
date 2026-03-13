@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="white">
-<circle cx="50" cy="50" r="18"/>
-<circle cx="50" cy="50" r="8" fill="black"/>
-<g>
-<rect x="48" y="2" width="4" height="18"/>
-<rect x="48" y="80" width="4" height="18"/>
-<rect x="2" y="48" width="18" height="4"/>
-<rect x="80" y="48" width="18" height="4"/>
-<rect x="16" y="16" width="12" height="4" transform="rotate(-45 22 18)"/>
-<rect x="72" y="16" width="12" height="4" transform="rotate(45 78 18)"/>
-<rect x="16" y="80" width="12" height="4" transform="rotate(45 22 82)"/>
-<rect x="72" y="80" width="12" height="4" transform="rotate(-45 78 82)"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g fill="white">
+    <circle cx="50" cy="50" r="28"/>
+
+    <rect x="46" y="2" width="8" height="16" rx="2"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(30 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(60 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(90 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(120 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(150 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(180 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(210 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(240 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(270 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(300 50 50)"/>
+    <rect x="46" y="2" width="8" height="16" rx="2" transform="rotate(330 50 50)"/>
+  </g>
+
+  <circle cx="50" cy="50" r="12" fill="black"/>
 </svg>
