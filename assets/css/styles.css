@@ -241,45 +241,46 @@ body{
 /* 7 gears layout */
 
 .g1{
-  left:-40px;
+  left:-30px;
   top:170px;
-  width:330px;
+  width:250px;
 }
 
 .g2{
-  left:300px;
-  top:40px;
-  width:135px;
+  left:180px;
+  top:250px;
+  width:110px;
 }
 
 .g3{
-  left:210px;
-  top:230px;
-  width:220px;
+  left:260px;
+  top:150px;
+  width:170px;
 }
 
 .g4{
-  left:610px;
-  top:150px;
-  width:150px;
+  left:470px;
+  top:10px;
+  width:95px;
 }
 
 .g5{
-  left:430px;
-  top:-120px;
-  width:430px;
+  left:520px;
+  top:-40px;
+  width:180px;
 }
 
 .g6{
-  left:740px;
-  top:210px;
-  width:150px;
+  left:700px;
+  top:260px;
+  width:120px;
 }
 
 .g7{
-  left:930px;
-  top:120px;
-  width:320px;
+  left:900px;
+  top:130px;
+  width:200px;
+}
 }/* Fade Factory logo gear */
 /* rotation */
 .spin-cw{ animation: spinCW 52s linear infinite; }
