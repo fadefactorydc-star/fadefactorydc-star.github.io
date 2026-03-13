@@ -549,16 +549,58 @@ z-index:1;
 .gear-logo{ width: 360px; }
 
 /* positions (desktop) */
-.g1{ left: -160px; top: 30px;  animation: spinCW 28s linear infinite; }
-.g2{ left: 420px;  top: -70px; animation: spinCCW 18s linear infinite; }
-.g3{ right: -170px; top: 10px; animation: spinCW 34s linear infinite; }
+.logo-gear{
+opacity:0.95 !important;
+z-index:4;
+}
+.g1{
+left:-40px;
+top:130px;
+width:260px;
+animation:spinCW 28s linear infinite;
+}
 
-.g4{ left: 140px;  bottom: -140px; animation: spinCCW 22s linear infinite; }
-.g5{ right: 230px; bottom: -190px; animation: spinCW 30s linear infinite; }
+.g2{
+left:170px;
+top:250px;
+width:95px;
+animation:spinCCW 18s linear infinite;
+}
 
-.g6{ right: 520px; top: 150px; animation: spinCW 16s linear infinite; }
-.g7{ left: 620px;  bottom: -70px; animation: spinCCW 40s linear infinite; }
+.g3{
+left:360px;
+top:60px;
+width:92px;
+animation:spinCW 34s linear infinite;
+}
 
+.g4{
+left:300px;
+top:110px;
+width:170px;
+animation:spinCCW 22s linear infinite;
+}
+
+.g5{
+left:470px;
+top:-10px;
+width:120px;
+animation:spinCW 30s linear infinite;
+}
+
+.g6{
+left:700px;
+top:220px;
+width:100px;
+animation:spinCW 16s linear infinite;
+}
+
+.g7{
+left:760px;
+top:70px;
+width:110px;
+animation:spinCCW 40s linear infinite;
+}
 /* animations */
 @keyframes spinCW { to { transform: rotate(360deg); } }
 @keyframes spinCCW { to { transform: rotate(-360deg); } }
