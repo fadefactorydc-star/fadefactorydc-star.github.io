@@ -223,64 +223,24 @@ body{
 }
 
 .gear-wall{
-  position:absolute;
-  top:0;
-  left:0;
-  width:1400px;
-  height:760px;
-  pointer-events:none;
-  z-index:1;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:300px;
+pointer-events:none;
+z-index:1;
 }
 
-.gear{
-  position:absolute;
-  display:block;
-  opacity:0.65;
-}
 
-/* 7 gears layout */
-
-.g1{
-  left: 20px;
-  top: 140px;
-  width: 220px;
 }
-
-.g2{
-  left: 170px;
-  top: 240px;
-  width: 110px;
-}
-
-.g3{
-  left: 260px;
-  top: 120px;
-  width: 170px;
-}
-
-.g4{
-  left: 430px;
-  top: 40px;
-  width: 110px;
-}
-
-.g5{
-  left: 540px;
-  top: 10px;
-  width: 170px;
-}
-
-.g6{
-  left: 760px;
-  top: 220px;
-  width: 120px;
-}
-
-.g7{
-  left: 920px;
-  top: 80px;
-  width: 170px;
-}
+.g1{top:20px; left:40px; width:180px;}
+.g2{top:60px; left:220px; width:120px;}
+.g3{top:40px; left:360px; width:160px;}
+.g4{top:90px; left:540px; width:110px;}
+.g5{top:10px; left:680px; width:200px;}
+.g6{top:70px; left:900px; width:120px;}
+.g7{top:40px; left:1080px; width:170px;}
 }/* Fade Factory logo gear */
 /* rotation */
 .spin-cw{ animation: spinCW 52s linear infinite; }
